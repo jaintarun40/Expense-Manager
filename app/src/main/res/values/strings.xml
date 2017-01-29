@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Expense Manager</string>
+    <string name="action_settings">Settings</string>
+    <string name="total_expense">Total Expense</string>
+    <string name="no_of_transactions">Number of transactions</string>
+    <string name="amount">Amount</string>
+    <string name="payee">Payee</string>
+    <string name="category">Category</string>
+    <string name="payment_method">Payment Method</string>
+
+    <string-array name="income_expense">
+        <item>Expense</item>
+        <item>Income</item>
+    </string-array>
+
+    <string-array name="payment_methods">
+        <item>Cash</item>
+        <item>Cheque</item>
+        <item>Credit Card</item>
+        <item>Debit Card</item>
+        <item>Net Banking</item>
+        <item>Mobile Wallet</item>
+    </string-array>
+</resources>
