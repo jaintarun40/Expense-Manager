@@ -1,6 +1,7 @@
 package com.example.varun.expensemanager;
 
 import android.content.Intent;
+import android.icu.text.DateFormat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import java.util.Date;
 
 public class ExpenseActivity extends AppCompatActivity {
 
@@ -18,6 +22,7 @@ public class ExpenseActivity extends AppCompatActivity {
     private EditText mAmount;
     private Spinner mSpinnerPaymentMethod;
     private ActionBar mActionBar;
+    private TextView mDateText;
 
     private static final int CALCULATOR=1;
 
@@ -30,6 +35,9 @@ public class ExpenseActivity extends AppCompatActivity {
         mAmount = (EditText) findViewById(R.id.amount_text);
         mSpinnerPaymentMethod = (Spinner) findViewById(R.id.payment_method_spinner);
         mActionBar = getSupportActionBar();
+        mDateText = (TextView) findViewById(R.id.date_text);
+
+        mDateText.setText(DateFormat.getInstance().format(new Date()));
 
         mActionBar.setDisplayHomeAsUpEnabled(true);
 
