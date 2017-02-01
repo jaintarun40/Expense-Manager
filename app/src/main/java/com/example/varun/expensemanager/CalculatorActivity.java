@@ -1,8 +1,10 @@
 package com.example.varun.expensemanager;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 public class CalculatorActivity extends AppCompatActivity {
     private TextView mExpression;
     private TextView mAfterExpression;
+    private ActionBar mActionBar;
 
     double answer;
 
@@ -20,6 +23,9 @@ public class CalculatorActivity extends AppCompatActivity {
 
         mExpression = (TextView) findViewById(R.id.calc_expression);
         mAfterExpression = (TextView) findViewById(R.id.after_expression);
+        mActionBar = getSupportActionBar();
+
+        mActionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     public void myClick(View view)
@@ -229,5 +235,17 @@ public class CalculatorActivity extends AppCompatActivity {
                 return x;
             }
         }.parse();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case (android.R.id.home):{
+                this.finish();
+                return true;
+            }
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

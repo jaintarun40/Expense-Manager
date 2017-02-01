@@ -1,8 +1,10 @@
 package com.example.varun.expensemanager;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -15,6 +17,7 @@ public class ExpenseActivity extends AppCompatActivity {
     private Button mCalciButton;
     private EditText mAmount;
     private Spinner mSpinnerPaymentMethod;
+    private ActionBar mActionBar;
 
     private static final int CALCULATOR=1;
 
@@ -26,6 +29,9 @@ public class ExpenseActivity extends AppCompatActivity {
         mSpinnerIncomeExpense = (Spinner) findViewById(R.id.expense_income_spinner);
         mAmount = (EditText) findViewById(R.id.amount_text);
         mSpinnerPaymentMethod = (Spinner) findViewById(R.id.payment_method_spinner);
+        mActionBar = getSupportActionBar();
+
+        mActionBar.setDisplayHomeAsUpEnabled(true);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.income_expense, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -63,5 +69,19 @@ public class ExpenseActivity extends AppCompatActivity {
                 mAmount.setText(mAmount.getText());
             }
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId()) {
+            case (android.R.id.home):{
+                this.finish();
+                return true;
+            }
+            default:
+                super.onOptionsItemSelected(item);
+        }
+        return true;
     }
 }
